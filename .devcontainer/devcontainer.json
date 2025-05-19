@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/postgres
+{
+	"name": "demo",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/demo",
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
+	"remoteUser": "vscode",
+	"forwardPorts": [
+		8000,
+		5432
+	],
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"charliermarsh.ruff"
+			],
+			"settings": {
+				"python.analysis.typeCheckingMode": "strict",
+				"[python]": {
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": "always"
+					},
+					"editor.defaultFormatter": "charliermarsh.ruff"
+				}
+			}
+		}
+	}
+}
